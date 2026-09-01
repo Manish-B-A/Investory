@@ -126,6 +126,13 @@ export class InvestmentService {
     this._components.set(stored ?? []);
   }
 
+  /** Seed default investments when the current scope has no components. */
+  ensureSeed(): void {
+    if (this._components().length > 0) return;
+    this._components.set([...SEED_INVESTMENTS]);
+    this.persist();
+  }
+
   private isDuplicateName(name: string, excludeId?: string): boolean {
     return this._components().some(
       (c) =>

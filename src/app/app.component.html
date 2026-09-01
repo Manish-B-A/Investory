@@ -72,6 +72,14 @@
     </nav>
 
     <div class="sidebar-footer">
+      <div
+        class="sync-indicator"
+        [attr.data-status]="syncState().status"
+        [title]="syncState().message || syncLabel()"
+      >
+        <span class="sync-dot" aria-hidden="true"></span>
+        <span class="sync-text">{{ syncLabel() }}</span>
+      </div>
       <div class="sidebar-version">v1.0.0</div>
     </div>
   </aside>
@@ -132,3 +140,13 @@
 
 <!-- Toast Container -->
 <app-toast />
+
+<app-confirm-dialog
+  [open]="migrationOpen()"
+  title="Upload local data?"
+  message="We found investment data on this device that is not in your cloud account. Upload it to your account, or keep cloud data separate and start fresh on this account."
+  confirmText="Upload local data"
+  cancelText="Keep separate"
+  (confirmed)="onUploadLocal()"
+  (cancelled)="onKeepSeparate()"
+/>

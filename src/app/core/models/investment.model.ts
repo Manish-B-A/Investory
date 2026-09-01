@@ -9,7 +9,7 @@ export interface InvestmentComponent {
 
 export interface MonthlyInvestment {
   id: string;
-  month: string; // YYYY-MM format
+  month: string; // YYYY-MM
   investments: MonthlyInvestmentEntry[];
 }
 
@@ -25,6 +25,38 @@ export interface AppData {
   investmentComponents: InvestmentComponent[];
   monthlyInvestments: MonthlyInvestment[];
   exportedAt: string;
+  updatedAt?: string;
+}
+
+export interface InvestmentReportSeriesPoint {
+  month: string;
+  contribution: number;
+  cumulative: number;
+  planned: number;
+}
+
+export interface InvestmentReportAnalysis {
+  overview: string[];
+  trends: string[];
+  performance: string[];
+}
+
+/** One dynamic report card/detail per investment component that has data. */
+export interface InvestmentTypeReport {
+  investmentId: string;
+  investmentName: string;
+  investmentType: string;
+  totalInvested: number;
+  contributionCount: number;
+  monthCount: number;
+  averageContribution: number;
+  highestContribution: { month: string; amount: number } | null;
+  lowestContribution: { month: string; amount: number } | null;
+  firstMonth: string | null;
+  lastMonth: string | null;
+  durationMonths: number;
+  series: InvestmentReportSeriesPoint[];
+  analysis: InvestmentReportAnalysis;
 }
 
 export interface MonthlyStats {

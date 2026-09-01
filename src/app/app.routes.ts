@@ -7,7 +7,6 @@ export const routes: Routes = [
       import('./features/dashboard/dashboard.component').then(
         (m) => m.DashboardComponent
       ),
-    title: 'Dashboard — Investory',
   },
   {
     path: 'monthly',
@@ -15,7 +14,6 @@ export const routes: Routes = [
       import('./features/monthly-tracker/monthly-tracker.component').then(
         (m) => m.MonthlyTrackerComponent
       ),
-    title: 'Monthly Tracker — Investory',
   },
   {
     path: 'investments',
@@ -23,7 +21,6 @@ export const routes: Routes = [
       import('./features/investments/investments.component').then(
         (m) => m.InvestmentsComponent
       ),
-    title: 'Investments — Investory',
   },
   {
     path: 'reports',
@@ -31,7 +28,6 @@ export const routes: Routes = [
       import('./features/reports/reports.component').then(
         (m) => m.ReportsComponent
       ),
-    title: 'Reports — Investory',
   },
   {
     path: 'settings',
@@ -39,7 +35,6 @@ export const routes: Routes = [
       import('./features/settings/settings.component').then(
         (m) => m.SettingsComponent
       ),
-    title: 'Settings — Investory',
   },
   {
     path: '**',
